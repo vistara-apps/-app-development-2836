@@ -163,16 +163,5 @@
     @apply bg-gradient-to-r from-secondary-500 to-secondary-600;
   }
   
-  /* Animation Classes */
-  .animate-fade-in {
-    @apply animate-fade-in;
-  }
-  
-  .animate-slide-up {
-    @apply animate-slide-up;
-  }
-  
-  .animate-scale-in {
-    @apply animate-scale-in;
-  }
+  /* Animation Classes - These are already defined in tailwind.config.js */
 }
