@@ -8,20 +8,27 @@ import DashboardPage from './pages/DashboardPage'
 import AuditPage from './pages/AuditPage'
 import OptimizationPage from './pages/OptimizationPage'
 import SubscriptionPage from './pages/SubscriptionPage'
+import { ToastContainer } from './components/ui'
+import { useToast } from './hooks/useToast'
 
 function App() {
+  const { toasts, removeToast } = useToast()
+  
   return (
     <RestaurantProvider>
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-secondary-50">
         <Header />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/onboarding" element={<OnboardingPage />} />
-          <Route path="/dashboard" element={<DashboardPage />} />
-          <Route path="/audit" element={<AuditPage />} />
-          <Route path="/optimization" element={<OptimizationPage />} />
-          <Route path="/subscription" element={<SubscriptionPage />} />
-        </Routes>
+        <main className="relative">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/onboarding" element={<OnboardingPage />} />
+            <Route path="/dashboard" element={<DashboardPage />} />
+            <Route path="/audit" element={<AuditPage />} />
+            <Route path="/optimization" element={<OptimizationPage />} />
+            <Route path="/subscription" element={<SubscriptionPage />} />
+          </Routes>
+        </main>
+        <ToastContainer toasts={toasts} onClose={removeToast} />
       </div>
     </RestaurantProvider>
   )
